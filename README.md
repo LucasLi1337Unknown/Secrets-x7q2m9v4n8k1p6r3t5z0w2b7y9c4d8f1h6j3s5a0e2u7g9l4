@@ -35,19 +35,20 @@ python3 -m http.server 8080
 
 纯 GitHub Pages 没有数据库，因此默认只在本浏览器保存预订。若要跨手机实时共享：
 
-1. 免费注册 Supabase，新建项目。
+1. 打开现有的流水宴 Supabase 项目。
 2. 在 SQL Editor 运行 `supabase/setup.sql`。
-3. 在 Project Settings → API 复制 Project URL 与 anon public key。
-4. 编辑 `config.js`：
+3. 本项目的 `config.js` 已经填入现有 Project URL 与 publishable key；无需再次修改。
+
+当前配置为：
 
 ```js
 window.LSY_CONFIG = {
-  SUPABASE_URL: "https://你的项目.supabase.co",
-  SUPABASE_ANON_KEY: "你的 anon key"
+  SUPABASE_URL: "https://tunuexbkkakiawsyanqu.supabase.co",
+  SUPABASE_ANON_KEY: "sb_publishable_3DoUzWc5ShX3MVVtTRiAvw_USCrJ88X"
 };
 ```
 
-5. 重新上传 `config.js`。页面的人气卡会自动显示“云端实时”，同一设备重复预订会被数据库拒绝。
+4. 把本包所有文件重新上传到 GitHub 仓库。页面的人气卡会自动显示“云端实时”，同一设备重复预订会被数据库拒绝。
 
 订阅邮箱也会使用同一个 Supabase 项目保存。管理页面地址为：
 
@@ -57,7 +58,7 @@ https://你的用户名.github.io/你的仓库名/liushui-console-7c9f.html
 
 这个页面已设置为不让搜索引擎收录，但任何知道完整链接的人都能访问，适合课堂演示，不适合保存敏感资料。
 
-> `anon key` 是专门给网页公开使用的公共密钥，不要填写 `service_role` 密钥。
+> `publishable key` 是专门给网页公开使用的公共密钥。绝对不要把 `secret` 或 `service_role` 密钥放进 GitHub。
 
 ## 修改菜单
 
